@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdwintCS
+namespace AdwintCS.Bots
 {
     public class MLP
     {
