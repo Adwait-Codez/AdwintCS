@@ -1,18 +1,28 @@
-﻿using System;
+﻿//Copyright AdwaitCreationz
+using System;
 
 namespace AdwintCS.DataStru
 {
-    class MLPLayer
+    public class MLPLayer
     {
         int inlen;
         float[] Biases;
         float[,] Matrice;
-        MLPLayer(int inputs,int length)
+
+        /// <summary>
+        /// A singular Layer Of MLP Bot.
+        /// </summary>
+        public MLPLayer(int inputs,int length)
         {
             inlen = inputs;
             Biases = new float[length];
             Matrice = new float[inputs, length];
-            Console.Write(Matrice);
+            Console.Write(Matrice.Length);
+        }
+
+        public float[] Compute()
+        {
+            return new float[7];
         }
     }
 }
