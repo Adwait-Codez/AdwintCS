@@ -5,9 +5,9 @@ namespace AdwintCS.DataStru
 {
     public class MLPLayer
     {
-        int inlen;
-        float[] Biases;
-        float[,] Matrice;
+        readonly int inlen;
+        public float[] Biases;
+        public float[,] Matrice;
 
         /// <summary>
         /// A singular Layer Of MLP Bot.
@@ -17,11 +17,21 @@ namespace AdwintCS.DataStru
             inlen = inputs;
             Biases = new float[length];
             Matrice = new float[inputs, length];
-            Console.Write(Matrice.Length);
         }
 
-        public float[] Compute()
+        public float[] Compute(float[] input)
         {
+            float[] outbuffer = new float[Biases.Length];
+            for(int i = 0; i < inlen; i++)
+            {
+                float gg = 0f;
+                for(int j = 0; j < Biases.Length; j++)
+                {
+                    gg += Matrice[i, j] * input[j];
+                }
+                gg += Biases[i];
+                outbuffer[i] = gg;
+            }
             return new float[7];
         }
     }
