@@ -32,7 +32,7 @@ namespace AdwintCS.DataStru
                 gg += Biases[i];
                 outbuffer[i] = gg;
             }
-            return new float[7];
+            return new outbuffer;
         }
     }
 }
