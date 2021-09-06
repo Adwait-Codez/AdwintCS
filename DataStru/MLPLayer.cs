@@ -6,7 +6,7 @@ using System;
 
 namespace AdwintCS.DataStru
 {
-    public class MLPLayer
+    internal class MLPLayer
     {
         readonly int inlen;
         public float[] Biases;
@@ -15,7 +15,7 @@ namespace AdwintCS.DataStru
         /// <summary>
         /// A singular Layer Of MLP Bot.
         /// </summary>
-        public MLPLayer(int inputs,int length)
+        internal MLPLayer(int inputs,int length)
         {
             inlen = inputs;
             Biases = new float[length];
@@ -25,7 +25,7 @@ namespace AdwintCS.DataStru
         /// <summary>
         /// Returns The Calculated response of this layer as a float array.
         /// </summary>
-        public float[] Compute(float[] input)
+        internal float[] Compute(float[] input)
         {
             float[] outbuffer = new float[Biases.Length];
             for(int i = 0; i < inlen; i++)
@@ -46,7 +46,7 @@ namespace AdwintCS.DataStru
         /// </summary>
         /// <param name="Min">Minimum Value for the biases to be set</param>
         /// <param name="Max">Maximum Value for the biases to be set</param>
-        public void SetRandomBiases(float Min,float Max)
+        internal void SetRandomBiases(float Min,float Max)
         {
             for(int i = 0; i < Biases.Length; i++)
             {
@@ -60,7 +60,7 @@ namespace AdwintCS.DataStru
         /// </summary>
         /// <param name="Min">Minimum Value for the Matrix elements to be set</param>
         /// <param name="Max">Maximum Value for the Matrix elements to be set</param>
-        public void SetRandomMatrix(float Min, float Max)
+        internal void SetRandomMatrix(float Min, float Max)
         {
             var RNG = new Random();
             for (int i = 0; i < inlen; i++)
@@ -76,7 +76,7 @@ namespace AdwintCS.DataStru
         /// Make Random Changes to the Layer Computations.
         /// </summary>
         /// <param name="delta">The Maximum Possible Change to any layer Parameter</param>
-        public void ChangeRandom(float delta)
+        internal void ChangeRandom(float delta)
         {
             var RNG = new Random();
             for (int i = 0; i < Biases.Length; i++)

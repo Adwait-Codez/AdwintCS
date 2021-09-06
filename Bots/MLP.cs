@@ -35,7 +35,7 @@ namespace AdwintCS.Bots
         }
 
         /// <summary>
-        /// Returns The Bot's response to given Input as 
+        /// Returns The Bot's response to given Input as a float array.
         /// </summary>
         public float[] Compute(float[] input)
         {
@@ -60,11 +60,28 @@ namespace AdwintCS.Bots
             }
         }
 
+        /// <summary>
+        /// Initialize Random Values for the biases.
+        /// </summary>
+        /// <param name="Min">Minimum Value for the biases to be set</param>
+        /// <param name="Max">Maximum Value for the biases to be set</param>
         public void SetRandomBiases(float Min, float Max)
         {
             for (int i = 0; i < layers.Length; i++)
             {
                 layers[i].SetRandomBiases(Min, Max);
+            }
+        }
+
+        /// <summary>
+        /// Make Random Changes to the Layer Computations.
+        /// </summary>
+        /// <param name="delta">The Maximum Possible Change to any layer Parameter</param>
+        public void ChangeRandom(float delta)
+        {
+            for (int i = 0; i < layers.Length; i++)
+            {
+                layers[i].ChangeRandom(delta);
             }
         }
     }
