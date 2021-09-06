@@ -39,7 +39,33 @@ namespace AdwintCS.Bots
         /// </summary>
         public float[] Compute(float[] input)
         {
-            return new float[7];
+            float[] Output = input;
+            for(int i = 0; i < layers.Length; i++)
+            {
+                Output = layers[i].Compute(Output);
+            }
+            return Output;
+        }
+
+        /// <summary>
+        /// Initialize Random Values for the elements of the Matricies of the layers.
+        /// </summary>
+        /// <param name="Min">Minimum Value for the Matrix elements to be set</param>
+        /// <param name="Max">Maximum Value for the Matrix elements to be set</param>
+        public void SetRandomMatrix(float Min, float Max)
+        {
+            for (int i = 0; i < layers.Length; i++)
+            {
+                layers[i].SetRandomMatrix(Min, Max);
+            }
+        }
+
+        public void SetRandomBiases(float Min, float Max)
+        {
+            for (int i = 0; i < layers.Length; i++)
+            {
+                layers[i].SetRandomBiases(Min, Max);
+            }
         }
     }
 }
