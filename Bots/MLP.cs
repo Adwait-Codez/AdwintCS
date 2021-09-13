@@ -84,5 +84,10 @@ namespace AdwintCS.Bots
                 layers[i].ChangeRandom(delta);
             }
         }
+
+        public void BackPropogate()
+        {
+
+        }
     }
 }
