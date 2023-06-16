@@ -14,6 +14,12 @@ namespace AdwintCS.DataStru.Math
             this.ValVec = new float[len];
         }
 
+        public NVec(float[] lol)
+        {
+            this.len = lol.Length;
+            this.ValVec = lol;
+        }
+
         public static NVec mult(float a, NVec b)
         {
             NVec ret = new NVec(b.len);

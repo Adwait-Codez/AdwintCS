@@ -1,7 +1,5 @@
 ﻿//Copyright AdwaitCreationz
 
-
-
 using System;
 
 namespace AdwintCS.Bots
