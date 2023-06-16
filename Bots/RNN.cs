@@ -10,17 +10,25 @@ namespace AdwintCS.Bots
         int nuno;
         NVec activations;
         NVec bias;
-        NMat Mat;
+        NMat Matrix;
+        
         public RNN(int Nurons)
         {
             nuno = Nurons;
             activations = new NVec(Nurons);
-            Mat = new NMat(Nurons);
+            bias = new NVec(Nurons);
+            Matrix = new NMat(Nurons);
+        }
+
+        public void Random()
+        {
+            bias.Random();
+            Matrix.Random();
         }
 
         public void compute()
         {
-            activations = activations * Mat + bias;
+            activations = activations * Matrix + bias;
         }
 
         public void Input(NVec Inputs)

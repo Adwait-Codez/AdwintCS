@@ -7,11 +7,10 @@ namespace AdwintCS.DataStru.Math
     public struct NMat
     {
         NVec[] Vecs;
-        int Mlen; //length of Vecs array
+        int Mlen { get { return Vecs.Length; } } //length of Vecs array
         
         public NMat(int Vlen, int Mlen)
         {
-            this.Mlen = Mlen;
             Vecs = new NVec[Mlen];
             for (int i = 0; i < Mlen; i++)
             {
@@ -21,7 +20,6 @@ namespace AdwintCS.DataStru.Math
 
         public NMat(int Usize)
         {
-            this.Mlen = Usize;
             Vecs = new NVec[Usize];
             for (int i = 0; i < Usize; i++)
             {
@@ -36,6 +34,7 @@ namespace AdwintCS.DataStru.Math
                 throw new ArithmeticException("Dimentionalities do not match");
             }
             NVec ret = new NVec(lhs.len);
+            ret.zero();
             for (int i = 0; i < lhs.len; i++)
             {
                 ret += lhs.ValVec[i] * rhs.Vecs[i];
